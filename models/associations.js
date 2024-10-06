@@ -1,8 +1,8 @@
 const {User} = require('./User');
-const Group = require('./Group');
+const {Group} = require('./Group');
 const UserGroup = require('./UserGroup');
-const Permission = require('./Permission');
-const GroupPermission = require('./GroupPermission');
+const {Permission} = require('./Permission');
+const {GroupPermission} = require('./GroupPermission');
 const {Token} = require('./Token');
 const {Patient} = require('./Patient');
 const { Doctor } = require('./Doctor');

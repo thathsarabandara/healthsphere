@@ -30,4 +30,6 @@ const GroupPermission = sequelize.define('GroupPermission', {
   timestamps: true,
 });
 
-module.exports = GroupPermission;
+module.exports = {
+  GroupPermission
+};

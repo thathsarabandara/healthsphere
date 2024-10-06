@@ -10,6 +10,7 @@ const Permission = sequelize.define('Permission', {
   name: {
     type: DataTypes.STRING(255),
     allowNull: false,
+    unique: true,
   },
   description: {
     type: DataTypes.TEXT,
@@ -20,4 +21,6 @@ const Permission = sequelize.define('Permission', {
   timestamps: true,
 });
 
-module.exports = Permission;
+module.exports = {
+  Permission
+};

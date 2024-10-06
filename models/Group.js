@@ -10,6 +10,7 @@ const Group = sequelize.define('Group', {
   name: {
     type: DataTypes.STRING(255),
     allowNull: false,
+    unique: true,
   },
   description: {
     type: DataTypes.TEXT,
@@ -20,4 +21,6 @@ const Group = sequelize.define('Group', {
   timestamps: true,
 });
 
-module.exports = Group;
+module.exports = {
+  Group
+};
