@@ -20,6 +20,7 @@ app.use('/', userRoutes);
 app.use('/doctor', doctorRutes);
 app.use('/admin', adminRoutes);
 
+// app.use(cors(corsOptions));
 // start server
 app.listen(PORT, ()=>{
     console.log(`Server is running on port ${PORT}`)

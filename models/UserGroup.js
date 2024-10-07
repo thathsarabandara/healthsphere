@@ -30,5 +30,23 @@ const UserGroup = sequelize.define('UserGroup', {
   timestamps: true,
 });
 
+const validateUserGroups = (id) =>{
+  try{const query = "SELECT group_id FROM UserGroup WHERE user_id = ?";
+  const results = sequelize.query(query,{
+    replacements: id,
+    type: sequelize.QueryTypes.SELECT,
+  });
+  if(!results){
+    return null
+  }
+  return results;
+}catch(err){
+  console.error('Error filnding Groups', err);
+}
+}
 
-module.exports = UserGroup;
+
+module.exports = {
+  UserGroup,
+  validateUserGroups
+};

@@ -75,9 +75,31 @@ const findToken = async (token) => {
   }
 };
 
+const findUserID = async (token) => {
+  try {
+    const query = "SELECT * FROM tokens WHERE token = ? LIMIT 1";
+    const [results] = await sequelize.query(query, {
+      replacements: [token],
+      type: sequelize.QueryTypes.SELECT,
+    });
+
+    // Check if results is undefined (because it's an object, not an array)
+    if (!results) {
+      return null; // No token found
+    }
+
+    return results.user_id; // Return the userID
+  } catch (err) {
+    console.error("Error finding User:", err);
+    return null; // Return null in case of error
+  }
+};
+
+
 
 module.exports = {
   Token,
   createToken,
-  findToken
+  findToken,
+  findUserID
 };

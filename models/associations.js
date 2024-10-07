@@ -1,6 +1,6 @@
 const {User} = require('./User');
 const {Group} = require('./Group');
-const UserGroup = require('./UserGroup');
+const {UserGroup} = require('./UserGroup');
 const {Permission} = require('./Permission');
 const {GroupPermission} = require('./GroupPermission');
 const {Token} = require('./Token');

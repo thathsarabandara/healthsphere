@@ -1,4 +1,4 @@
-const { findToken } = require('../models/Token');
+const { findToken } = require('../../models/Token');
 
 const authMiddleware = async (req, res, next) => {
   const token = req.headers['token'];
