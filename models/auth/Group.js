@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db'); 
+const sequelize = require('../../config/db');
 
-const Permission = sequelize.define('Permission', {
+const Group = sequelize.define('Group', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -17,10 +17,10 @@ const Permission = sequelize.define('Permission', {
     allowNull: true,
   }
 }, {
-  tableName: 'permissions',
+  tableName: 'groups',
   timestamps: true,
 });
 
 module.exports = {
-  Permission
+  Group
 };

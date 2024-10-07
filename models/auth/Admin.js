@@ -1,9 +1,9 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db'); 
-const User = require('./User');
+const sequelize = require('../../config/db'); 
+const User = require('./User'); 
 
-const Patient = sequelize.define('Patient', {
-    patient_id: {
+const Admin = sequelize.define('Admin', {
+    admin_id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -16,28 +16,12 @@ const Patient = sequelize.define('Patient', {
             key: 'id',
         },
     },
-    first_name: {
+    name: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
     },
-    last_name: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
-    date_of_birth: {
-        type: DataTypes.DATE,
-        allowNull: true,
-    },
-    gender: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
-    phone_number: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
-    address: {
-        type: DataTypes.STRING,
+    description: {
+        type: DataTypes.TEXT,
         allowNull: true,
     },
     created_at: {
@@ -49,10 +33,10 @@ const Patient = sequelize.define('Patient', {
         defaultValue: DataTypes.NOW,
     },
 }, {
-    tableName: 'patients',
+    tableName: 'admins',
     timestamps: false,
 });
 
 module.exports = {
-    Patient
+    Admin
 };

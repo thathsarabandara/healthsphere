@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db'); 
+const sequelize = require('../../config/db'); 
 const User = require('./User'); 
-const Group = require('./Group'); 
+const Group = require('../Group'); 
 
 const UserGroup = sequelize.define('UserGroup', {
   id: {

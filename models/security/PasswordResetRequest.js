@@ -1,14 +1,14 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db'); 
-const User = require('./User'); 
+const sequelize = require('../../config/db'); 
+const {User} = require('./auth/User');
 
-const Admin = sequelize.define('Admin', {
-    admin_id: {
+const PasswordResetRequest = sequelize.define('PasswordResetRequest', {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
     },
-    User_id: {
+    user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
@@ -16,27 +16,23 @@ const Admin = sequelize.define('Admin', {
             key: 'id',
         },
     },
-    name: {
-        type: DataTypes.STRING,
+    token: {
+        type: DataTypes.STRING(255),
         allowNull: false,
-    },
-    description: {
-        type: DataTypes.TEXT,
-        allowNull: true,
     },
     created_at: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
     },
-    updated_at: {
+    expires_at: {
         type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
+        allowNull: false,
     },
 }, {
-    tableName: 'admins',
+    tableName: 'password_reset_requests',
     timestamps: false,
 });
 
 module.exports = {
-    Admin
+    PasswordResetRequest,
 };

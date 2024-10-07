@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db'); // Adjust the path as needed
-const User = require('./User'); // Import the User model
+const sequelize = require('../config/database');
+const User = require('./user');
+const Specialization = require('./Specialization');
 
 const Doctor = sequelize.define('Doctor', {
     doctor_id: {
@@ -8,13 +9,13 @@ const Doctor = sequelize.define('Doctor', {
         autoIncrement: true,
         primaryKey: true,
     },
-    User_id: {
+    user_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         references: {
             model: User,
-            key: 'id',
+            key: 'user_id',
         },
+        allowNull: false,
     },
     first_name: {
         type: DataTypes.STRING,
@@ -38,15 +39,17 @@ const Doctor = sequelize.define('Doctor', {
     },
     address: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     medical_license_number: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    specialization: {
-        type: DataTypes.STRING,
-        allowNull: false,
+    specialization_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: Specialization,
+            key: 'id',
+        },
     },
     years_of_experience: {
         type: DataTypes.INTEGER,
@@ -54,23 +57,18 @@ const Doctor = sequelize.define('Doctor', {
     },
     hospital_clinic_affiliation: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     medical_school_university: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     national_id_passport: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     medical_license_document: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     professional_certifications: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     created_at: {
         type: DataTypes.DATE,
@@ -86,5 +84,5 @@ const Doctor = sequelize.define('Doctor', {
 });
 
 module.exports = {
-    Doctor
+    Doctor,
 };

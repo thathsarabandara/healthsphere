@@ -1,4 +1,4 @@
-const { findUserID } = require('../../models/Token');
+const { findUserID } = require('../../models/auth/Token');
 const { validateUserGroups } = require('../../models/userGroups');
 
 const authorizeRole = (role) => {
