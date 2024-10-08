@@ -1,10 +1,10 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/db');
-const Patient = require('./Patient');
-const Reservation = require('./Reservation');
+const {Patient} = require('./Patient');
+const {Reservation} = require('./Reservation');
 
 const Prescription = sequelize.define('Prescription', {
-    prescription_id: {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -13,7 +13,7 @@ const Prescription = sequelize.define('Prescription', {
         type: DataTypes.INTEGER,
         references: {
             model: Patient,
-            key: 'patient_id',
+            key: 'id',
         },
         allowNull: false,
     },
@@ -21,7 +21,7 @@ const Prescription = sequelize.define('Prescription', {
         type: DataTypes.INTEGER,
         references: {
             model: Reservation,
-            key: 'reservation_id',
+            key: 'id',
         },
     },
     prescription_photo: {

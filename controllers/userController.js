@@ -1,8 +1,9 @@
-const User = require('../models/User');
-const { createUser , findByEmail } = require('../models/User'); // Import the createUser function
-const { comparePassword } = require('../utils/hashpassword')
-const {createToken} = require('../models/Token')
-const tokenutils = require('../utils/tokenUtils')
+const User = require('../models/auth/User');
+const { createUser , findByEmail } = require('../models/auth/User'); // Import the createUser function
+const { comparePassword } = require('../utils/hashpassword');
+const {createToken} = require('../models/auth/Token');
+const tokenutils = require('../utils/tokenUtils');
+const otpController = require('./otpController');
 
 exports.register = async (req, res) => {
     const userdata = {
@@ -17,15 +18,23 @@ exports.register = async (req, res) => {
     }
 
     try {
-        // Create the user
+        // Create the user first
         const newUser = await createUser(userdata); // Call createUser directly
-        res.status(201).json({ message: 'User created successfully', user: newUser });
+
+        // Send OTP to the user's email after successful user creation
+        await otpController.sendOTP(userdata.email); // Make sure to pass the user's email
+        res.status(201).json({ message: 'User created successfully, OTP sent', user: newUser });
+
     } catch (err) {
-        // Provide a more detailed error message
-        console.error('Error during user creation:', err);
-        return res.status(500).json({ error: 'User creation failed', details: err.message });
+        // Handle user creation or OTP sending errors
+        console.error('Error during registration process:', err);
+        if (err.message.includes('OTP failed')) {
+            return res.status(400).json({ error: 'OTP sending failed', details: err.message });
+        }
+        return res.status(500).json({ error: 'Registration failed', details: err.message });
     }
 };
+
 exports.login = async(req, res) => {
     const credentials = req.body;
 

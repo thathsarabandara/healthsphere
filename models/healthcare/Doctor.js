@@ -1,10 +1,10 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
-const User = require('./user');
-const Specialization = require('./Specialization');
+const sequelize = require('../../config/db');
+const {User} = require('../auth/User');
+const {Specialization} = require('./Specialization');
 
 const Doctor = sequelize.define('Doctor', {
-    doctor_id: {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -13,7 +13,7 @@ const Doctor = sequelize.define('Doctor', {
         type: DataTypes.INTEGER,
         references: {
             model: User,
-            key: 'user_id',
+            key: 'id',
         },
         allowNull: false,
     },

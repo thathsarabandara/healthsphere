@@ -1,9 +1,9 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/db');
-const User = require('./user');
+const {User} = require('../auth/User');
 
 const Notification = sequelize.define('Notification', {
-    notification_id: {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -12,7 +12,7 @@ const Notification = sequelize.define('Notification', {
         type: DataTypes.INTEGER,
         references: {
             model: User,
-            key: 'user_id',
+            key: 'id',
         },
         allowNull: false,
     },

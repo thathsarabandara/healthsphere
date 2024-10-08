@@ -1,9 +1,9 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/db'); 
-const User = require('../auth/User');
+const {User} = require('../auth/User');
 
 const Patient = sequelize.define('Patient', {
-    patient_id: {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,

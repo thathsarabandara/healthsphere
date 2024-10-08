@@ -1,9 +1,9 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/db');
-const Schedule = require('./Schedule');
+const {Schedule} = require('./Schedule');
 
 const ScheduleCancel = sequelize.define('ScheduleCancel', {
-    schedule_cancel_id: {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -12,7 +12,7 @@ const ScheduleCancel = sequelize.define('ScheduleCancel', {
         type: DataTypes.INTEGER,
         references: {
             model: Schedule,
-            key: 'schedule_id',
+            key: 'id',
         },
         allowNull: false,
     },

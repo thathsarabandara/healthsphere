@@ -1,9 +1,9 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/db');
-const Payment = require('./Payment');
+const {Payment} = require('./Payment');
 
 const Refund = sequelize.define('Refund', {
-    refund_id: {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -12,7 +12,7 @@ const Refund = sequelize.define('Refund', {
         type: DataTypes.INTEGER,
         references: {
             model: Payment,
-            key: 'payment_id',
+            key: 'id',
         },
     },
     refund_reason: {

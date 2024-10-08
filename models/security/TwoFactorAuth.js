@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/db'); 
-const {User} = require('./auth/User');
+const {User} = require('../auth/User');
 
 const TwoFactorAuth = sequelize.define('TwoFactorAuth', {
     id: {

@@ -1,9 +1,10 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/db');
-const Patient = require('../healthcare/Patient');
+const {Patient} = require('../healthcare/Patient');
+const {CartItem} = require('./CartItem');
 
 const Cart = sequelize.define('Cart', {
-    cart_id: {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -12,7 +13,7 @@ const Cart = sequelize.define('Cart', {
         type: DataTypes.INTEGER,
         references: {
             model: Patient,
-            key: 'patient_id',
+            key: 'id',
         },
         allowNull: false,
     },
@@ -20,7 +21,7 @@ const Cart = sequelize.define('Cart', {
         type: DataTypes.INTEGER,
         references: {
             model: CartItem,
-            key: 'cart_item_id',
+            key: 'id',
         },
         allowNull: false,
     },

@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/db');
-const User = require('../auth/User');
+const {User} = require('../auth/User');
 
 const RateLimiting = sequelize.define('RateLimiting', {
     id: {
@@ -12,7 +12,7 @@ const RateLimiting = sequelize.define('RateLimiting', {
         type: DataTypes.INTEGER,
         references: {
             model: User,
-            key: 'user_id',
+            key: 'id',
         },
         allowNull: false,
     },

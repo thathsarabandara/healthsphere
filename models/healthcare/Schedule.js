@@ -1,9 +1,9 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/db');
-const Doctor = require('../healthcare/Doctor');
+const {Doctor} = require('../healthcare/Doctor');
 
 const Schedule = sequelize.define('Schedule', {
-    schedule_id: {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -12,7 +12,7 @@ const Schedule = sequelize.define('Schedule', {
         type: DataTypes.INTEGER,
         references: {
             model: Doctor,
-            key: 'doctor_id',
+            key: 'id',
         },
         allowNull: false,
     },
