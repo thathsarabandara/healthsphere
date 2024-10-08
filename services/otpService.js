@@ -6,7 +6,9 @@ const generateOTP = () => crypto.randomInt(100000, 999999).toString();
 
 exports.sendOTP = async (email) => {
     const otp = generateOTP();
-    await redisClient.setex(email, 600, otp);
+    console.log(otp);
+    await redisClient.setEx(email, 600, otp);
+    console.log('redis');
     await emailService.sendOTPEmail(email, otp);
 };
 

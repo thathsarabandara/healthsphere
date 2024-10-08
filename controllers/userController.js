@@ -19,11 +19,11 @@ exports.register = async (req, res) => {
 
     try {
         // Create the user first
-        const newUser = await createUser(userdata); // Call createUser directly
+        // const newUser = await createUser(userdata); // Call createUser directly
 
         // Send OTP to the user's email after successful user creation
         await otpController.sendOTP(userdata.email); // Make sure to pass the user's email
-        res.status(201).json({ message: 'User created successfully, OTP sent', user: newUser });
+        // res.status(201).json({ message: 'User created successfully, OTP sent', user: newUser });
 
     } catch (err) {
         // Handle user creation or OTP sending errors
