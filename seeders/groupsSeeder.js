@@ -1,5 +1,5 @@
 const sequelize = require('../config/db');
-const {Group} = require('../models/Group');
+const {Group} = require('../models/auth/Group');
 
 const seedGroups = async () => {
   try {

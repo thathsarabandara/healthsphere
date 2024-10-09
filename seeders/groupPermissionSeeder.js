@@ -1,5 +1,5 @@
 const sequelize = require('../config/db');
-const { GroupPermission } = require('../models/GroupPermission');
+const { GroupPermission } = require('../models/auth/GroupPermission');
 
 const seedGroupPermissions = async () => {
   try {

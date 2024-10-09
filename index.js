@@ -6,7 +6,7 @@ const adminRoutes = require('./routes/admins');
 const bodyParser = require('body-parser');
 const sequelize = require('./config/db');
 const sync = require('./config/sync')
-
+const sendWelcomeMessage = require('./services/emailServices')
 
 // port for the server
 const PORT = process.env.PORT || 3000;

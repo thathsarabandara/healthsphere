@@ -1,5 +1,5 @@
 const sequelize = require('../config/db');
-const { Permission } = require('../models/Permission');
+const { Permission } = require('../models/auth/Permission');
 
 const seedPermissions = async () => {
   try {
