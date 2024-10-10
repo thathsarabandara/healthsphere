@@ -1,0 +1,65 @@
+h1{
+    font-family: Sensation;
+    font-size: 55px;
+    font-weight: bold;
+    
+}
+
+span{
+    background-color: #112D4E;
+    border-radius: 5px;
+}   
+.lower .middle{
+    background-color: #112D4E;
+}
+.middle{
+    font-family: segoe UI;
+    font-weight: bold;
+}
+.section1{
+    background-color: #C8D8F6;
+    
+}
+.section1 h1{
+    font-size: 55px;
+    font-weight: 400;
+    font-family: 'Anton', sans-serif;
+    
+}
+.section1 h6{
+    font-weight: 400;
+    font-size: 23px;
+    font-family: 'Anton', sans-serif;
+    
+}
+.section1 h3{
+    font-family: 'Anton', sans-serif;
+    
+}
+
+
+
+.stat-box {
+    font-family: 'Sansation', sans-serif;
+    text-align: center;
+    margin: 15px 0;
+  }
+  
+  .stat-number {
+    font-size: 48px;
+    font-weight: 700;
+  }
+  
+  .stat-plus {
+    font-size: 42px;
+  }
+  
+  .stat-label {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .section3{
+    background-color: #C8D8F6;
+    
+}

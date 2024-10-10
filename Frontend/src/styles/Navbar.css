@@ -1,0 +1,40 @@
+.navbar{
+    background-color: #2A5D9C;
+}
+.nav-link {
+    margin-right: 20px;
+    font-size: 13px;
+    color: white !important;
+    transition: color 0.3s ease;
+  }
+  .navbar .nav-link:hover {
+    color: black !important; 
+}
+.logo{
+    width: 137px;
+    height: 40px;
+}
+
+.btn1{
+    background-color: #fff;
+    border-radius: 5px;
+    width: 66px;
+    height: 39px;
+}
+.btn1:hover{
+    background-color: #C8D8F6;
+}
+.btn2{
+    background-color: #112D4E;
+    border-radius: 5px;
+    width: 66px;
+    height: 39px;
+}
+.btn2:hover{
+    background-color: #C8D8F6;
+}
+.account-icon {
+    width: 60px;
+    height: auto; 
+    color:#112D4E;
+  }
